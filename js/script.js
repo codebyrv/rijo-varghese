@@ -209,6 +209,7 @@ const musicTracks = [
 let playing = false;
 let userPaused = false;
 let currentTrack = "";
+let mutedAutoplay = true;
 
 function chooseRandomTrack() {
 
@@ -279,6 +280,26 @@ function startMusic() {
 }
 
 
+function enableAudibleMusic() {
+
+    if (!mutedAutoplay || userPaused)
+        return;
+
+    mutedAutoplay = false;
+    bgAudio.muted = false;
+
+    startMusic().then(started => {
+
+        if (!started) {
+            mutedAutoplay = true;
+            bgAudio.muted = true;
+        }
+
+    });
+
+}
+
+
 function stopMusic() {
 
     userPaused = true;
@@ -294,6 +315,11 @@ function stopMusic() {
 /* TOGGLE */
 
 function toggleMusic() {
+
+    if (mutedAutoplay) {
+        enableAudibleMusic();
+        return;
+    }
 
     if (playing) {
 
@@ -448,7 +474,9 @@ if (
 const interactionEvents = [
     "click",
     "touchstart",
-    "keydown"
+    "keydown",
+    "wheel",
+    "scroll"
 ];
 
 
@@ -467,6 +495,11 @@ function removeMusicUnlockListeners() {
 
 
 function unlockMusic() {
+
+    if (mutedAutoplay) {
+        enableAudibleMusic();
+        return;
+    }
 
     if (playing) {
         removeMusicUnlockListeners();
@@ -572,5 +605,6 @@ document.addEventListener(
 const musicSubtitle =
 document.querySelector(".music-subtitle");
 
+bgAudio.muted = true;
 chooseRandomTrack();
 startMusic();
