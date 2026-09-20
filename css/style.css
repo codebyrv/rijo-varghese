@@ -1413,7 +1413,7 @@ header {
 .project { min-height: 330px; padding: 27px; background: #1b2426; border-color: rgba(255,255,255,.13); border-radius: 5px; }.project:hover { background: #243033; border-color: var(--blue); box-shadow: none; }.project-no { color: var(--gold); }.project h3 { margin-top: 57px; font-size: 30px; }.project p { color: #aab4ae; font-size: 14px; }.tag { color: var(--blue); border: 1px solid rgba(167,232,195,.28); border-radius: 2px; background: transparent; }.project-link { color: #f3c969; }
 
 .skill-card { border-radius: 0; }.skill-card:hover { box-shadow: none; }.skill-list span { border-radius: 2px; background: var(--soft); }
-.contact { background: var(--gold); color: var(--deep); }.contact::before { content: "</>"; color: rgba(16,20,23,.1); font: 150px var(--mono); }.contact .eyebrow { color: var(--deep); }.contact h2 { font-size: clamp(46px, 7vw, 82px); }.contact p { color: rgba(16,20,23,.72); }.contact .btn.primary { background: var(--deep); border-color: var(--deep); }.contact .btn.secondary { border-color: rgba(16,20,23,.35); }
+.contact { background: #ffffff; color: var(--deep); }.contact::before { content: "</>"; color: rgba(16,20,23,.08); font: 150px var(--mono); }.contact .eyebrow { color: var(--deep); }.contact h2 { font-size: clamp(46px, 7vw, 82px); }.contact p { color: rgba(16,20,23,.72); }.contact .btn.primary { background: var(--deep); border-color: var(--deep); color: #ffffff; }.contact .btn.secondary { border-color: rgba(16,20,23,.35); color: var(--deep); }
 .music-player { background: rgba(16,20,23,.92); color: #fffaf1; border-color: rgba(167,232,195,.3); border-radius: 5px; }.music-player.collapsed { border-radius: 5px; }.music-art { border-color: var(--blue); background: repeating-radial-gradient(circle, #263638 0 2px, #101417 3px 5px); }.music-kicker { color: var(--blue); }.music-progress span { background: var(--gold); }.music-control.play { background: var(--blue); color: var(--deep); border-color: var(--blue); }.music-close { background: var(--deep); color: #fffaf1; }
 
 @media(max-width:850px) {
@@ -1691,28 +1691,40 @@ footer {
 }
 
 .contact {
-    background: #121212;
-    color: #fff;
-    border-top: 1px solid rgba(96, 73, 234, .45);
-    border-bottom: 1px solid rgba(96, 73, 234, .45);
+    background: #ffffff;
+    color: var(--deep);
+    border-top: 1px solid rgba(16, 20, 23, .08);
+    border-bottom: 1px solid rgba(16, 20, 23, .08);
 }
 
 .contact::before {
-    color: rgba(96, 73, 234, .1);
+    color: rgba(16, 20, 23, .08);
 }
 
 .contact .eyebrow {
-    color: #36e0cf;
+    color: var(--deep);
 }
 
 .contact .btn.primary {
-    background: #6049ea;
-    border-color: #6049ea;
+    background: var(--deep);
+    border-color: var(--deep);
+    color: #ffffff;
 }
 
 .contact .btn.secondary {
-    color: #fff;
-    border-color: rgba(255, 255, 255, .28);
+    background: var(--deep);
+    border-color: var(--deep);
+    color: #ffffff;
+    transform: none;
+    box-shadow: none;
+}
+
+.contact .btn.secondary:hover {
+    background: var(--deep);
+    border-color: var(--deep);
+    color: #ffffff;
+    transform: none;
+    box-shadow: none;
 }
 
 .code {
@@ -1893,8 +1905,7 @@ header {
 .blob.one { background: #ff815d; }
 .blob.two { background: #26c8f2; box-shadow: 0 0 0 17px rgba(38, 200, 242, .2); }
 
-.btn.primary,
-.contact {
+.btn.primary {
     background: #ff815d;
     border-color: #ff815d;
     color: #071827;
@@ -1986,10 +1997,11 @@ header {
     border-bottom: 1px solid rgba(255, 129, 93, .45);
 }
 
-.contact .eyebrow { color: #26c8f2; }
-.contact p { color: rgba(255, 255, 255, .78); }
-.contact .btn.primary { background: #071827; border-color: #071827; color: #fff; }
-.contact .btn.secondary { color: #fff; border-color: rgba(255, 255, 255, .3); }
+.contact .eyebrow { color: var(--deep); }
+.contact p { color: rgba(16, 20, 23, .72); }
+.contact .btn.primary { background: var(--deep); border-color: var(--deep); color: #fff; }
+.contact .btn.secondary { background: var(--deep); border-color: var(--deep); color: #fff; transform: none; box-shadow: none; }
+.contact .btn.secondary:hover { background: var(--deep); border-color: var(--deep); color: #fff; transform: none; box-shadow: none; }
 
 footer {
     background: #04121e;
